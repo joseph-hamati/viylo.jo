@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Viylo — Business Services in Jordan</title>
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("8FU6I7tiZVsNq3T_Y"); /* your EmailJS public key */
+  </script>
+
+  <!-- PayPal SDK (replace client-id) -->
+  <script src="https://www.paypal.com/sdk/js?client-id=AXxJ0Nfcwns0E98QndJfXnDQRfOuyXN_rb_mH8zTgewHNIcEkiKpZeUEVyRENn_YevWr2uOcoq23-gZB&currency=USD"></script>
+</head>
+<body>
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="brand">Viylo</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#cart">Cart</a>
+      <a href="#order">Order</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="reveal">Scale your business in Jordan with <span>Viylo</span></h1>
+      <p class="reveal delay-1">
+        Video editing, web development, logo design, social media management — everything your company needs.
+      </p>
+      <a href="#services" class="btn reveal delay-2">Explore Services</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <h2 class="section-title will-reveal">Our Services</h2>
+    <p class="section-subtitle will-reveal">Hand-picked packages priced in JOD</p>
+    <div id="servicesGrid" class="grid"></div>
+  </section>
+
+  <!-- Cart -->
+  <section id="cart" class="section alt">
+    <h2 class="section-title will-reveal">Your Cart</h2>
+    <div class="cart-wrap">
+      <ul id="cartList" class="cart-list"></ul>
+      <div class="totals will-reveal">
+        <div class="row"><span>Subtotal</span><span id="subtotal">0.00 JOD</span></div>
+        <div class="row"><span>Taxes (0%)</span><span id="tax">0.00 JOD</span></div>
+        <div class="row grand"><span>Total</span><span id="total">0.00 JOD</span></div>
+
+        <!-- PayPal -->
+        <div id="usdNote" class="tiny" style="margin-top:6px"></div>
+        <div id="paypal-button-container" style="margin-top:14px"></div>
+        <div id="paypalFallback" class="tiny" style="display:none;margin-top:8px">
+          PayPal not loaded. Please refresh or contact us to pay manually.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order -->
+  <section id="order" class="section">
+    <h2 class="section-title will-reveal">Place Your Order</h2>
+    <p class="section-subtitle will-reveal">We’ll receive your request by email and contact you on the same day.</p>
+    <form id="orderForm" class="form will-reveal">
+      <div class="form-row">
+        <input type="text" id="name" placeholder="Full Name" required/>
+        <input type="email" id="email" placeholder="Email" required/>
+      </div>
+      <div class="form-row">
+        <input type="text" id="phone" placeholder="Phone Number" required/>
+        <input type="text" id="company" placeholder="Company (optional)"/>
+      </div>
+      <textarea id="notes" placeholder="Notes (deadlines, links, special requests)"></textarea>
+      <button type="submit" class="btn full">Submit Order</button>
+      <p class="tiny mt8">By submitting, you agree to be contacted by Viylo to finalize your order.</p>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Viylo — Made in Jordan</p>
+  </footer>
+
+  <!-- Success Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <div class="checkmark">✓</div>
+      <h3>Order sent!</h3>
+      <p>We’ve received your request. Check your inbox for a copy. We’ll contact you shortly.</p>
+      <button id="closeModal" class="btn">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
